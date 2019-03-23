@@ -9,7 +9,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.modules/.o
 wget https://raw.githubusercontent.com/vlntngrgr/VDot/master/.config/zshrc
 mv ./.config/zshrc ~/.config/zshrc
 
-ln -svf "$DOTFILES_DIR/zshrc" ~/.zshrc
+ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 sudo chsh -s /bin/zsh
 
 sudo pacman -S awesome-terminal-fonts

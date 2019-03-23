@@ -1,5 +1,6 @@
 #!/bin/sh
-export DOTFILES_DIR="~/.config/dotfiles"
+DOTFILES_DIR=""
+echo $DOTFILES_DIR
 
 echo ""
 echo "---------- VDot --------"
@@ -13,10 +14,11 @@ esac
 
 ## Creating files and moving file where they should be
 mkdir -p ~/.modules
-cp -r ./dotfiles ~/.config
+mkdir -p ~/.config/dotfiles
+cp -r dotfiles ~/.config/
 
 sudo rm /etc/pacman.d/mirrorlist
-sudo ln -svf "$DOTFILES/mirrorlist" /etc/pacman.d/mirrorlist 
+sudo ln -svf ~/.config/dotfiles/mirrorlist /etc/pacman.d/mirrorlist 
 
 sudo pacman -Suy
 
@@ -39,20 +41,20 @@ fi
 echo ""
 echo "------ link dotfiles ------"
 
-ln -sfv "$DOTFILES_DIR/babelrc.json" ~/.babelrc
-ln -sfv "$DOTFILES_DIR/curlrc" ~/.curlrc
-ln -sfv "$DOTFILES_DIR/editorconfig" ~/.editorconfig
-ln -sfv "$DOTFILES_DIR/eslintrc.js" ~/.eslintrc.js
-ln -sfv "$DOTFILES_DIR/gitconfig" ~/.gitconfig
-ln -sfv "$DOTFILES_DIR/gitignore_global" ~/.gitignore_global
-ln -sfv "$DOTFILES_DIR/prettierrc" ~/.prettierrc
-ln -sfv "$DOTFILES_DIR/wgetrc" ~/.wgetrc
+ln -sfv ~/.config/dotfiles/babelrc.json ~/.babelrc
+ln -sfv ~/.config/dotfiles/curlrc ~/.curlrc
+ln -sfv ~/.config/dotfiles/editorconfig ~/.editorconfig
+ln -sfv ~/.config/dotfiles/eslintrc.js ~/.eslintrc.js
+ln -sfv ~/.config/dotfiles/gitconfig ~/.gitconfig
+ln -sfv ~/.config/dotfiles/gitignore_global ~/.gitignore_global
+ln -sfv ~/.config/dotfiles/prettierrc ~/.prettierrc
+ln -sfv ~/.config/dotfiles/wgetrc ~/.wgetrc
 
 echo ""
 echo "----- link terminfo files -----"
 
-tic -x "$DOTFILES_DIR/terminfo/xterm-256color-italic.terminfo"
-tic -x "$DOTFILES_DIR/terminfo/tmux-256color.terminfo"
+tic -x ~/.config/dotfiles/terminfo/xterm-256color-italic.terminfo
+tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
 
 sh ./scripts/01-omz.sh
 sh ./scripts/02-tmux.sh
