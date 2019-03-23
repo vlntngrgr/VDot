@@ -16,7 +16,7 @@ mkdir -p ~/.modules
 cp -r ./dotfiles ~/.config
 
 sudo rm /etc/pacman.d/mirrorlist
-ln -svf "$DOTFILES/mirrorlist" /etc/pacman.d/mirrorlist 
+sudo ln -svf "$DOTFILES/mirrorlist" /etc/pacman.d/mirrorlist 
 
 sudo pacman -Suy
 
@@ -55,3 +55,4 @@ tic -x "$DOTFILES_DIR/terminfo/xterm-256color-italic.terminfo"
 tic -x "$DOTFILES_DIR/terminfo/tmux-256color.terminfo"
 
 sh ./scripts/01-omz.sh
+sh ./scripts/02-tmux.sh

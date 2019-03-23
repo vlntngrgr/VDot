@@ -9,5 +9,5 @@ fi
 
 mkdir -p ~/.config/tmux-plugins
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
-ln -sfv "$DOTFILES_DIR/tmux.conf"/.dotmux/tmux.conf ~/.tmux.conf
+ln -sfv "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
 
