@@ -34,8 +34,6 @@
     added = yellow
     changed = green
     untracked = cyan
-[http]
-    postBuffer = 1048576000
 [status]
     short = true
 [filter "media"]
@@ -47,5 +45,3 @@
 	default = simple
 [pull]
     rebase = preserve
-[tag]
-    forceSignAnnotated = true
