@@ -1,6 +1,4 @@
 #!/bin/sh
-DOTFILES_DIR=""
-echo $DOTFILES_DIR
 
 echo ""
 echo "---------- VDot --------"
@@ -36,6 +34,10 @@ fi
 
 if ! type "zsh" > /dev/null; then
 	"y" | sudo pacman -Su zsh
+fi
+
+if ! type "code" > /dev/null; then
+	"y" | sudo pacman -Su code
 fi
 
 echo ""
