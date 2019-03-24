@@ -11,7 +11,6 @@ case $response in
 esac
 
 ## Creating files and moving file where they should be
-mkdir -p ~/.modules
 mkdir -p ~/.config/dotfiles
 cp -r dotfiles ~/.config/
 
@@ -36,8 +35,8 @@ echo "----- link terminfo files -----"
 tic -x ~/.config/dotfiles/terminfo/xterm-256color-italic.terminfo
 tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
 
-"y" | sudo pacman -Suy git curl wget zsh code awesome-terminal-fonts tmux termit neovim vim
+sudo pacman -Suy
+sudo pacman -S zsh git curl wget code awesome-terminal-fonts tmux termite neovim
 
 sh ./scripts/01-omz.sh
 sh ./scripts/02-tmux.sh
-sh ./scripts/workspace.sh
