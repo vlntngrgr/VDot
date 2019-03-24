@@ -27,9 +27,9 @@ git clone https://github.com/vlntngrgr/pomodoro.git ~/Works/01-BeCode/02-La_coll
 git clone https://github.com/Stev07/Bookshelf.git ~/Works/01-BeCode/02-La_colline/02-NodeJS/03-Bookshelf 
 git clone https://github.com/AnarionBe/met.git ~/Works/01-BeCode/02-La_colline/02-NodeJS/04-met 
 
-git clone https://github.com/vlntngrgr/atss.git ~/Works/01-BeCode99-Projet_Perso/01-ATSS 
+git clone https://github.com/vlntngrgr/atss.git ~/Works/01-BeCode/99-Projet_Perso/01-ATSS 
 git clone https://github.com/vlntngrgr/LIE-Hamilton-1.7.git ~/Works/01-BeCode/99-Hamilton 
 cd ~/Works/01-BeCode/99-Hamilton 
 git remote add upstream https://github.com/becodeorg/LIE-Hamilton-1.7.git 
 cd ~/ 
-git clone https://github.com/vlntngrgr/webpath.git ./99-Projet_Perso/99-WebDev 
+git clone https://github.com/vlntngrgr/webpath.git ./works/99-Projet_Perso/99-WebDev 
