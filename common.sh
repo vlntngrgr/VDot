@@ -36,7 +36,7 @@ tic -x ~/.config/dotfiles/terminfo/xterm-256color-italic.terminfo
 tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
 
 sudo pacman -Suy
-sudo pacman -S zsh git curl wget code awesome-terminal-fonts tmux termite neovim
+sudo pacman -S zsh git curl wget code tmux termite neovim
 
 sh ./scripts/01-omz.sh
 sh ./scripts/02-tmux.sh
