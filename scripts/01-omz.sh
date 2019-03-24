@@ -12,6 +12,6 @@ mv ./.config/zshrc ~/.config/zshrc
 ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 sudo chsh -s /bin/zsh
 
-sudo pacman -S awesome-terminal-fonts
+"y" | sudo pacman -S awesome-terminal-fonts
 
 fc-cache -vf

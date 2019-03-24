@@ -18,27 +18,7 @@ cp -r dotfiles ~/.config/
 sudo rm /etc/pacman.d/mirrorlist
 sudo ln -svf ~/.config/dotfiles/mirrorlist /etc/pacman.d/mirrorlist 
 
-sudo pacman -Suy
-
-if ! type "git" > /dev/null; then
-	"y" | sudo pacman -S git
-fi
-
-if ! type "curl" > /dev/null; then
-	"y" | sudo pacman -S curl
-fi
-
-if ! type "wget" > /dev/null; then
-	"y" | sudo pacman -S wget
-fi
-
-if ! type "zsh" > /dev/null; then
-	"y" | sudo pacman -Su zsh
-fi
-
-if ! type "code" > /dev/null; then
-	"y" | sudo pacman -Su code
-fi
+sudo pacman -Suy git curl wget zsh code 
 
 echo ""
 echo "------ link dotfiles ------"
@@ -60,3 +40,4 @@ tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
 
 sh ./scripts/01-omz.sh
 sh ./scripts/02-tmux.sh
+sh ./scripts/workspace.sh
