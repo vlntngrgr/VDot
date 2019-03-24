@@ -6,9 +6,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
+ln -svf ~/.config/dotfiles/.zshrc ~/.zshrc
 sudo chsh -s /bin/zsh
-
-"y" | sudo pacman -S 
 
 fc-cache -vf
