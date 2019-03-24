@@ -9,6 +9,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 sudo chsh -s /bin/zsh
 
-"y" | sudo pacman -S awesome-terminal-fonts
+"y" | sudo pacman -S 
 
 fc-cache -vf

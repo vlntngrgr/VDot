@@ -18,8 +18,6 @@ cp -r dotfiles ~/.config/
 sudo rm /etc/pacman.d/mirrorlist
 sudo ln -svf ~/.config/dotfiles/mirrorlist /etc/pacman.d/mirrorlist 
 
-sudo pacman -Suy git curl wget zsh code 
-
 echo ""
 echo "------ link dotfiles ------"
 
@@ -37,6 +35,8 @@ echo "----- link terminfo files -----"
 
 tic -x ~/.config/dotfiles/terminfo/xterm-256color-italic.terminfo
 tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
+
+"y" | sudo pacman -Suy git curl wget zsh code awesome-terminal-fonts tmux termit neovim vim
 
 sh ./scripts/01-omz.sh
 sh ./scripts/02-tmux.sh
