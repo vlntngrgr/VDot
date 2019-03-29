@@ -26,20 +26,23 @@ Or you can use my way to install Arch Linux. I refer here every commands that I 
   $
   $ echo en_US.UTF-8 UTF-8 >> /etc/locale.gen
   $ locale-gen
-  $
+  $ hwclock --systohc
+  $ 
   $ echo $USER > /etc/hostname
   $ echo "127.0.0.1   localhost" >> /etc/hosts
   $ echo "::1        localhost" >> /etc/hosts
   $ echo "127.0.0.1   $USER.be  localhost" >> /etc/hosts
-  $ echo "LANG=en_US.UTF-8" > /etc/locale.conf
   $
+  $ echo "LANG=en_US.UTF-8" > /etc/locale.conf
+  $ echo "LANGUAGE=en_US" >> /etc/locale.conf
+  $ 
   $ passwd
   $ <root_password> 
   $ <confirm_root_password>
   $
   $ useradd <username>
   $ passwd <username>
-  
+  $
   $ mkdir /home/<username>
   $ chown -R <username>:<username> /home/<username>
   $ echo "<username> ALL=(ALL) ALL" >> /etc/sudoers
