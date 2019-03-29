@@ -49,8 +49,6 @@ chsh -s /usr/bin/zsh
 rm -rf ~/.zshrc 
 mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 
-zsh 
-
 echo ""
 echo "----- configure & install tmux / NVIM-----"
 
@@ -60,7 +58,7 @@ ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 
 ln -svf  ~/.config/dotfiles/nvim ~/.config/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim -c PlugInstall --no-bash --no-fish -c qa
+nvim +PlugInstall +qall
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh)"
 bash 
