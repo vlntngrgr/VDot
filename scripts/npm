@@ -1,0 +1,16 @@
+@babel/cli
+babel-eslint
+@babel/preset-env
+@babel/plugin-proposal-decorators
+@babel/plugin-proposal-object-rest-spread
+@babel/plugin-proposal-class-properties
+eslint
+eslint-plugin-react
+eslint-plugin-prettier
+neovim
+prettier
+prettier-plugin-elm
+seve
+stylus
+tankipas
+touteta
