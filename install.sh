@@ -1,5 +1,7 @@
 #!/bin/bash
-read "enter your usename: " response
+echo "---- Install arch from vlntngrgr"
+echo "enter your usename: "
+read response
 export USER=$response
 
 echo "BASIC INSTALLATION FOR USER: $USER"
