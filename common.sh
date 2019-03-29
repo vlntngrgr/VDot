@@ -35,5 +35,31 @@ sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon
 
 systemctl enable lightdm
 
-sh ./scripts/01-omz.sh
-sh ./scripts/02-tmux.sh
+
+# install oh my zsh
+"exit" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k 
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
+
+chsh -s /usr/bin/zsh
+
+echo ""
+echo "----- configure & install tmux / NVIM-----"
+
+mkdir -p ~/.config/tmux-plugins
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
+ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
+
+ln -svf  ~/.config/dotfiles/nvim ~/.config/nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +qall
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+nvm install node
+nvm install npm
+
+npm i -g < "./npm"
+
+
+fc-cache -vf

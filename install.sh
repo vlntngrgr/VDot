@@ -1,5 +1,5 @@
 #!/bin/bash
-read -n 1 -r -p "enter your usename: " response
+read -r -p "enter your usename: " response
 export USER=$response
 
 ln -sf /usr/share/zoneinfo/Europe/Brussels /etc/localtime
