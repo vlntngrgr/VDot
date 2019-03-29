@@ -1,3 +1,5 @@
+source ~/.bashrc
+
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export ZSH="/home/${USER}/.oh-my-zsh"
