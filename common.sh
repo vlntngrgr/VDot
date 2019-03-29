@@ -60,7 +60,7 @@ ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 
 ln -svf  ~/.config/dotfiles/nvim ~/.config/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +"PlugInstall --no-bash --no-fish" +qall
+nvim -c PlugInstall --no-bash --no-fish -c qa
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh)"
 bash 
