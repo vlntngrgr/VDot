@@ -1,6 +1,8 @@
 #!/bin/bash
-read -n 1 -r -p "enter your usename: " response
+read "enter your usename: " response
 export USER=$response
+
+echo "BASIC INSTALLATION FOR USER: $USER"
 
 ln -sf /usr/share/zoneinfo/Europe/Brussels /etc/localtime
 hwclock --systohc
@@ -16,8 +18,10 @@ echo "127.0.0.1   $USER.be  localhost" >> /etc/hosts
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "LANGUAGE=en_US" >> /etc/locale.conf
 
+echo "-- ENTER THE ROOT PASSWORD: "
 passwd
   
+echo "-- ENTER THE USER $USER PASSWORD: "
 useradd $USER
 passwd $USER
   
