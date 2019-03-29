@@ -44,6 +44,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 
 chsh -s /usr/bin/zsh
 
+rm -rf ~/.zshrc 
+mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+
 echo ""
 echo "----- configure & install tmux / NVIM-----"
 
