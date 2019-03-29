@@ -2,18 +2,10 @@
 
 ## Install Arch-Linux
 Those scripts are here to help me customize my Arch Linux. 
-If you don't have Arch,make sure to install by following this methods:
-[Install Arch Linux]!(https://wiki.archlinux.org/index.php/installation_guide)
+If you don't have Arch, make sure to install by following this methods:
+[Install Arch Linux](https://wiki.archlinux.org/index.php/installation_guide)
 
-I suggest you to partition your disk to have at least 3 partitions (4 if EFI is needed 
-or in case of GPT disk):
-- / (ext4 => mount /mnt)
-- swap
-- /home (etx4 => mount /mnt/home)
-- /efi (efi partition => mount /mnt/boot/efi)
-
-When partition are ready, connect to internet, check connection, and execute this command (it's a suggestion, 
-you don't need to do the exact same install):
+Or you can use my way to install Arch Linux. I refer here every commands that I execute
 
 ```bash
   $ mount /dev/sdXY /mnt 
