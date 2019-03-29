@@ -54,6 +54,10 @@ Or you can use my way to install Arch Linux. I refer here every commands that I 
   $ systemctl disable netctl 
   $ systemctl enable NetworkManager
   $ 
+  $ git clone https://github.com/vlntngrgr/VDot.git /home/$USER/
+  $
+  $ cd VDot
+  $ sh common.sh
   $ exit
   ---------------------- OUT ARCH-CHROOT -----------------------------
   $ shutdown -h now
