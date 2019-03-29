@@ -39,4 +39,3 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl disable dhcpcd 
 systemctl disable netctl 
 systemctl enable NetworkManager
-
