@@ -62,10 +62,8 @@ nvim +PlugInstall +qall
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh)"
 
-nvm install node
-nvm install npm
-
-npm i -g < "./npm"
-
-
 fc-cache -vf
+
+dconf load /org/cinnamon/ < cinnamon_backup
+
+reboot
