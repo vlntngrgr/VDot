@@ -293,14 +293,6 @@ augroup Lightline
     au User ALELint call lightline#update()
 augroup END
 
-" ---------- fzf
-
-let g:fzf_layout = { 'down': '~20%' }
-
-nnoremap <c-p> :GFiles<CR>
-nnoremap <c-o> :Files<CR>
-nnoremap <c-b> :Buffers<CR>
-
 " ---------- Region expanding configuration
 
 vmap v <Plug>(expand_region_expand)
