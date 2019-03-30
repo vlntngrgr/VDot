@@ -32,8 +32,8 @@ tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
 echo ""
 echo "----- Install my necessary package -----"
 
-sudo pacman -Suy
-sudo pacman -S zsh git curl wget code tmux termite neovim ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamon 
+sudo pacman -Suy --no-confirm
+sudo pacman -S --no-confirm zsh git curl wget code tmux termite neovim ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamom adapta-gtk-theme
 
 systemctl enable lightdm
 
