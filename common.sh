@@ -61,7 +61,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 nvim +PlugInstall +qall
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh)"
-bash 
 
 nvm install node
 nvm install npm
