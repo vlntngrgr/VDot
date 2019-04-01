@@ -33,8 +33,9 @@ echo ""
 echo "----- Install my necessary package -----"
 
 sudo pacman -Suy --no-confirm
-sudo pacman -S --no-confirm zsh git curl wget code tmux termite neovim ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamom adapta-gtk-theme
+sudo pacman -S --no-confirm zsh git wget code tmux termite neovim ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamom adapta-gtk-theme containerd docker docker-compose
 
+sudo usermod -a -G docker $USER
 systemctl enable lightdm
 
 
@@ -50,17 +51,15 @@ rm -rf ~/.zshrc
 mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
 
 echo ""
-echo "----- configure & install tmux / NVIM-----"
+echo "----- configure & install tmux -----"
 
 mkdir -p ~/.config/tmux-plugins
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
 ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 
-ln -svf  ~/.config/dotfiles/nvim ~/.config/nvim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +qall
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh)"
+
+zsh | nvm install node | npm i -g < ./npm
 
 fc-cache -vf
 
