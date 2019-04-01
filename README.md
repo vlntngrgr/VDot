@@ -1,4 +1,5 @@
 # VDot
+> This file needs to ne rewrite, I'll do  it when this project will be over
 
 ## Install Arch-Linux
 Those scripts are here to help me customize my Arch Linux. 
