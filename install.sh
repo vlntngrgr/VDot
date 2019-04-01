@@ -33,7 +33,9 @@ echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
   
 pacman -S grub linux-lts linux-lts-headers openssh git networkmanager efibootmgr
   
-grub-install /dev/sda
+#grub-install /dev/sda
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
+
 grub-mkconfig -o /boot/grub/grub.cfg
   
 systemctl disable dhcpcd 
