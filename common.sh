@@ -33,7 +33,7 @@ echo ""
 echo "----- Install my necessary package -----"
 
 sudo pacman -Suy
-sudo pacman -S zsh git wget code tmux termite neovim chromium ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamom adapta-gtk-theme containerd docker docker-compose libreoffice-fresh 
+sudo pacman -S zsh git wget code tmux termite neovim chromium ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamon adapta-gtk-theme containerd docker docker-compose libreoffice-fresh 
 #git clone https://aur.archlinux.org/firefox-nightly.git && cd firefox-nightly
 sudo usermod -a -G docker $USER
 systemctl enable lightdm
