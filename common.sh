@@ -32,8 +32,8 @@ tic -x ~/.config/dotfiles/terminfo/tmux-256color.terminfo
 echo ""
 echo "----- Install my necessary package -----"
 
-sudo pacman -Suy --no-confirm
-sudo pacman -S --no-confirm zsh git wget code tmux termite neovim ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamom adapta-gtk-theme containerd docker docker-compose libreoffice-fresh 
+sudo pacman -Suy
+sudo pacman -S zsh git wget code tmux termite neovim chromium ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter cinnamom adapta-gtk-theme containerd docker docker-compose libreoffice-fresh 
 #git clone https://aur.archlinux.org/firefox-nightly.git && cd firefox-nightly
 sudo usermod -a -G docker $USER
 systemctl enable lightdm
