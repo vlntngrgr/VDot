@@ -32,4 +32,4 @@ git clone https://github.com/vlntngrgr/LIE-Hamilton-1.7.git ~/Works/01-BeCode/99
 cd ~/Works/01-BeCode/99-Hamilton 
 git remote add upstream https://github.com/becodeorg/LIE-Hamilton-1.7.git 
 cd ~/ 
-git clone https://github.com/vlntngrgr/webpath.git ./works/99-Projet_Perso/99-WebDev 
+git clone https://github.com/vlntngrgr/webpath.git  ~/Works/01-BeCode/99-Projet_Perso/99-WebDev 
