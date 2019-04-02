@@ -89,7 +89,7 @@ fc-cache -vf
 
 echo "--"
 echo "-- Import my Cinnamon config"
-dconf load /org/cinnamon/ < cinnamon_backup
+dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
 
 echo "-- -- You will need to reboot your computer"
 echo "-- -- Have fun!"
