@@ -28,30 +28,30 @@ echo "-- Install needed package"
 sudo pacman -Suy
 sudo pacman -S zsh git wget code tmux termite neovim chromium ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter i3 cinnamon adapta-gtk-theme containerd docker docker-compose libreoffice-fresh node npm
 
-echo "--"
-echo "-- Install Firefox Nightly from AUR"
-git clone https://aur.archlinux.org/firefox-nightly.git
-cd firefox-nightly
-gpg --recv-key 0x61B7B526D98F0353
-makepkg -si
-cd ..
-rm -rf firefox-nightly
+#echo "--"
+#echo "-- Install Firefox Nightly from AUR"
+#git clone https://aur.archlinux.org/firefox-nightly.git
+#cd firefox-nightly
+#gpg --recv-key 0x61B7B526D98F0353
+#makepkg -si
+#cd ..
+#rm -rf firefox-nightly
 
-echo "--"
-echo "-- Install Postman from AUR"
-git clone https://aur.archlinux.org/postman-bin.git
-cd postman-bin
-makepkg -si 
-cd ..
-rm -rf postman-bin
+#echo "--"
+#echo "-- Install Postman from AUR"
+#git clone https://aur.archlinux.org/postman-bin.git
+#cd postman-bin
+#makepkg -si 
+#cd ..
+#rm -rf postman-bin
 
-echo "--"
-echo "-- Install GitKraken from AUR"
-git clone https://aur.archlinux.org/gitkraken.git
-cd gitkraken 
-makepkg -si 
-cd ..
-rm -rf gitkraken
+#echo "--"
+#echo "-- Install GitKraken from AUR"
+#git clone https://aur.archlinux.org/gitkraken.git
+#cd gitkraken 
+#makepkg -si 
+#cd ..
+#rm -rf gitkraken
 
 echo "--"
 echo "-- Setting up docker to work without sudo"
