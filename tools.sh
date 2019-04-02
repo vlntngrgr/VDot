@@ -25,8 +25,8 @@ ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 echo "-- Install needed package"
-echo "y" | sudo pacman -Suy
-echo "y" | sudo pacman -S zsh git wget code tmux termite neovim chromium ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter i3 cinnamon adapta-gtk-theme containerd docker docker-compose libreoffice-fresh node npm
+sudo pacman -Suy
+sudo pacman -S zsh git wget code tmux termite neovim chromium ttf-font-awesome xorg-server lightdm lightdm-gtk-greeter i3 cinnamon adapta-gtk-theme containerd docker docker-compose libreoffice-fresh node npm
 
 echo "--"
 echo "-- Install Firefox Nightly from AUR"
