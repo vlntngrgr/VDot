@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "-- -- Install ArchLinux Base in arch-chroot"
-echo "-- Belgium, Brussels, Qwerty US, EFI"
+echo "-- Belgium, Brussels, Qwerty US, EFI, en_US Language"
 
 echo "--"
 echo "-- Enter your username"
