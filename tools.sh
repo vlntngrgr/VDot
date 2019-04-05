@@ -85,7 +85,7 @@ mkdir -p ~/.config/tmux-plugins
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
 
 echo "--"
-echp "-- Reload all fonts"
+echo "-- Reload all fonts"
 fc-cache -vf
 
 echo "--"
