@@ -25,33 +25,35 @@ ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 
 echo ""
 echo "-- Install needed package"
-sudo pacman -Suy
-sudo pacman -S xorg-server lightdm lightdm-gtk-greeter i3 cinnamon zsh git wget code tmux termite neovim chromium ttf-font-awesome adapta-gtk-theme containerd docker docker-compose libreoffice-fresh nodejs npm
+sudo pacman -Suy && sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon cmus \
+zsh wget code tmux termite vim chromium ttf-font-awesome firefox \
+adapta-gtk-theme containerd docker docker-compose libreoffice-fresh \ 
+nodejs npm
 
-#echo "--"
-#echo "-- Install Firefox Nightly from AUR"
-#git clone https://aur.archlinux.org/firefox-nightly.git
-#cd firefox-nightly
-#gpg --recv-key 0x61B7B526D98F0353
-#makepkg -si
-#cd ..
-#rm -rf firefox-nightly
+echo "--"
+echo "-- Install Firefox Nightly from AUR"
+git clone https://aur.archlinux.org/firefox-nightly.git
+cd firefox-nightly
+gpg --recv-key 0x61B7B526D98F0353
+makepkg -si
+cd ..
+rm -rf firefox-nightly
 
-#echo "--"
-#echo "-- Install Postman from AUR"
-#git clone https://aur.archlinux.org/postman-bin.git
-#cd postman-bin
-#makepkg -si 
-#cd ..
-#rm -rf postman-bin
+echo "--"
+echo "-- Install Postman from AUR"
+git clone https://aur.archlinux.org/postman-bin.git
+cd postman-bin
+makepkg -si 
+cd ..
+rm -rf postman-bin
 
-#echo "--"
-#echo "-- Install GitKraken from AUR"
-#git clone https://aur.archlinux.org/gitkraken.git
-#cd gitkraken 
-#makepkg -si 
-#cd ..
-#rm -rf gitkraken
+echo "--"
+echo "-- Install GitKraken from AUR"
+git clone https://aur.archlinux.org/gitkraken.git
+cd gitkraken 
+makepkg -si 
+cd ..
+rm -rf gitkraken
 
 echo "--"
 echo "-- Setting up docker to work without sudo"
@@ -65,7 +67,7 @@ echo "--"
 echo "-- Setting up Node / NPM to work without sudo"
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
-npm install -g jshint
+npm install -g @babel/cli react-cli preact-cli strapi@alpha webpack-cli eslint prettier
 
 echo "--"
 echo "-- Install oh-my-zsh and configure some plugins"
@@ -79,17 +81,27 @@ echo "-- Setting up ZSH as default shell"
 chsh -s /usr/bin/zsh
 
 echo "-- "
-echo "----- configure & install tmux -----"
+echo "-- configure & install tmux"
 mkdir -p ~/.config/tmux-plugins
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
-
-echo "--"
-echo "-- Reload all fonts"
-fc-cache -vf
 
 echo "--"
 echo "-- Import my Cinnamon config"
 dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
 
-echo "-- -- You will need to reboot your computer"
+echo "-- "
+echo "-- Installing Fira Fonts"
+mkdir ~/.fonts
+wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz)
+tar -xz 1.206.tar.gz ~/.fonts/
+
+echo "--"
+echo "-- Reload all fonts"
+fc-cache -f
+
+#echo "--"
+#echo "-- Install my visual studio extensions"
+#code --install-extension azemoh.one-monokai
+
+echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm
 echo "-- -- Have fun!"
