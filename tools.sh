@@ -31,7 +31,7 @@ echo "-- Install needed package"
 sudo pacman -Suy 
 sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon cmus \
 zsh wget code tmux termite vim chromium ttf-font-awesome firefox \
-adapta-gtk-theme containerd docker docker-compose libreoffice-fresh \ 
+adapta-gtk-theme containerd docker docker-compose libreoffice-fresh \
 nodejs npm php
 
 echo "--"
