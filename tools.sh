@@ -5,6 +5,8 @@ echo "-- --"
 
 echo "-- --"
 echo "-- Git config enable crendential cache..."
+git config --global user.email "valentin.gregoire91@gmail.com"
+git config --global user.name "vlntngrgr"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
 
@@ -21,14 +23,14 @@ ln -sfv ~/.config/dotfiles/eslintrc.js ~/.eslintrc.js
 ln -sfv ~/.config/dotfiles/prettierrc ~/.prettierrc
 ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 ln -svf ~/.config/dotfiles/cinnamon ~/.cinnamon
-ln -sfv  ~/.config/dotfiles/tmux.conf ~/.tmux.conf
-
+ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
+ln -svf ~/.cinnamon/applets ~/.local/share/cinnamon/applets
 echo ""
 echo "-- Install needed package"
 sudo pacman -Suy && sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon cmus \
 zsh wget code tmux termite vim chromium ttf-font-awesome firefox \
 adapta-gtk-theme containerd docker docker-compose libreoffice-fresh \ 
-nodejs npm
+nodejs npm php
 
 echo "--"
 echo "-- Install Firefox Nightly from AUR"
@@ -91,9 +93,9 @@ dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
 
 echo "-- "
 echo "-- Installing Fira Fonts"
-mkdir ~/.fonts
-wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz)
-tar -xz 1.206.tar.gz ~/.fonts/
+mkdir -p ~/.fonts/fira
+wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz
+tar -xz 1.206.tar.gz -C ~/.fonts/fira
 
 echo "--"
 echo "-- Reload all fonts"
@@ -101,7 +103,16 @@ fc-cache -f
 
 #echo "--"
 #echo "-- Install my visual studio extensions"
-#code --install-extension azemoh.one-monokai
+#code --install-extension PeterJausovec.vscode-docker
+#code --install-extension EQuimper.react-native-react-redux
+#code --install-extension johnpapa.winteriscoming
+#code --install-extension vscode-icons-team.vscode-icons
+#code --install-extension xabikos.JavaScriptSnippets
+#code --install-extension dbaeumer.vscode-eslint
+#code --install-extension bysabi.prettier-vscode-semistandard
+#code --install-extension chris-noring.node-snippets
+#code --install-extension ms-vscode.node-debug2
+#code --install-extension mgmcdermott.vscode-language-babel
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm
 echo "-- -- Have fun!"
