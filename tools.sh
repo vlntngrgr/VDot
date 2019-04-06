@@ -4,7 +4,7 @@ echo "-- -- Run this program to install basic tools and my dotfiles"
 echo "-- --"
 
 echo "-- --"
-echo "-- Git config enable crendential cache..."
+echo "-- Git config"
 git config --global user.email "valentin.gregoire91@gmail.com"
 git config --global user.name "vlntngrgr"
 git config --global credential.helper cache
@@ -25,6 +25,7 @@ ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 ln -svf ~/.config/dotfiles/cinnamon ~/.cinnamon
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 ln -svf ~/.cinnamon/applets ~/.local/share/cinnamon/applets
+
 echo ""
 echo "-- Install needed package"
 sudo pacman -Suy && sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon cmus \
@@ -101,18 +102,18 @@ echo "--"
 echo "-- Reload all fonts"
 fc-cache -f
 
-#echo "--"
-#echo "-- Install my visual studio extensions"
-#code --install-extension PeterJausovec.vscode-docker
-#code --install-extension EQuimper.react-native-react-redux
-#code --install-extension johnpapa.winteriscoming
-#code --install-extension vscode-icons-team.vscode-icons
-#code --install-extension xabikos.JavaScriptSnippets
-#code --install-extension dbaeumer.vscode-eslint
-#code --install-extension bysabi.prettier-vscode-semistandard
-#code --install-extension chris-noring.node-snippets
-#code --install-extension ms-vscode.node-debug2
-#code --install-extension mgmcdermott.vscode-language-babel
+echo "--"
+echo "-- Install my visual studio extensions"
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension EQuimper.react-native-react-redux
+code --install-extension johnpapa.winteriscoming
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension xabikos.JavaScriptSnippets
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension bysabi.prettier-vscode-semistandard
+code --install-extension chris-noring.node-snippets
+code --install-extension ms-vscode.node-debug2
+code --install-extension mgmcdermott.vscode-language-babel
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm
 echo "-- -- Have fun!"
