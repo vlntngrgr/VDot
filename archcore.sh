@@ -39,7 +39,7 @@ mkdir /home/$USER
 chown -R $USER:$USER /home/$USER
 echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
   
-pacman -S grub openssh git networkmanager efibootmgr
+pacman -S grub openssh git networkmanager efibootmgr sudo
   
 #grub-install /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
