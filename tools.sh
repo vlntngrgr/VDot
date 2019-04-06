@@ -59,6 +59,14 @@ cd ..
 rm -rf gitkraken
 
 echo "--"
+echo "-- Installing Station from AUR"
+git clone https://aur.archlinux.org/station.git
+cd station
+makepkg -si
+cd ..
+rm -rf station
+
+echo "--"
 echo "-- Setting up docker to work without sudo"
 sudo usermod -a -G docker $USER
 
@@ -109,11 +117,12 @@ code --install-extension EQuimper.react-native-react-redux
 code --install-extension johnpapa.winteriscoming
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension xabikos.JavaScriptSnippets
-code --install-extension dbaeumer.vscode-eslint
 code --install-extension bysabi.prettier-vscode-semistandard
 code --install-extension chris-noring.node-snippets
 code --install-extension ms-vscode.node-debug2
 code --install-extension mgmcdermott.vscode-language-babel
+code --install-extension esbenp.prettier-vscode
+code --install-extension dbaeumer.vscode-eslint
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm
 echo "-- -- Have fun!"
