@@ -127,7 +127,7 @@ code --install-extension ms-vscode.node-debug2
 code --install-extension mgmcdermott.vscode-language-babel
 code --install-extension esbenp.prettier-vscode
 code --install-extension dbaeumer.vscode-eslint
-ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/Code\-\ OSS/User/settings.json
+ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/Code\ -\ OSS/User/settings.json
 
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm"
