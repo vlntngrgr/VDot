@@ -129,5 +129,5 @@ code --install-extension dbaeumer.vscode-eslint
 ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/Code\-\ OSS/User/settings.json
 
 
-echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm
+echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm"
 echo "-- -- Have fun!"
