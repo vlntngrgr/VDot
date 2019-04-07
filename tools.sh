@@ -105,9 +105,10 @@ dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
 
 echo "-- "
 echo "-- Installing Fira Fonts"
-mkdir -p ~/.fonts/fira
 wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz
-tar -xz 1.206.tar.gz -C ~/.fonts/fira
+mkdir -p ~/.fonts && cd ~/.fonts
+tar -xf 1.206.tar.gz FiraCode-1.206/distr
+cd ~/ && rm 1.206.tar.gz
 
 echo "--"
 echo "-- Reload all fonts"
