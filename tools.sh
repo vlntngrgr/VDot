@@ -24,6 +24,8 @@ ln -sfv ~/.config/dotfiles/prettierrc ~/.prettierrc
 ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 ln -svf ~/.config/dotfiles/cinnamon ~/.cinnamon
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
+
+mkdir -p ~/.local/share/cinnamon
 ln -svf ~/.cinnamon/applets ~/.local/share/cinnamon/applets
 
 echo ""
