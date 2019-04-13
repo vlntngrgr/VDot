@@ -32,7 +32,9 @@ echo "-- Install needed package"
 sudo pacman -Suy
 sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon \
 chromium ttf-font-awesome vim gnome-terminal tmux code zsh fish \
-nodejs npm php adapta-gtk-theme
+nodejs npm php adapta-gtk-theme wireless_tools
+
+sudo iwconfig wlp1s0 power off
 
 #sudo pacman -S cmus firefox containerd docker docker-compose libreoffice-fresh
 
