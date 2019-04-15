@@ -18,9 +18,9 @@ hwclock --systohc
 echo en_US.UTF-8 UTF-8 >> /etc/locale.gen
 locale-gen
 
-echo "$USER-desktop" > /etc/hostname
+echo "$USER-surface" > /etc/hostname
 echo "127.0.0.1   localhost" >> /etc/hosts
-echo "::1         localhost" >> /etc/hosts
+echo "::1        localhost" >> /etc/hosts
 echo "127.0.0.1   $USER.be  localhost" >> /etc/hosts
   
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -45,8 +45,7 @@ pacman -S grub openssh git networkmanager efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
 
 grub-mkconfig -o /boot/grub/grub.cfg
-  
-systemctl disable dhcpcd
+
 systemctl enable NetworkManager
 
 echo "--"
