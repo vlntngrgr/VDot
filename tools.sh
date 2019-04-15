@@ -32,36 +32,26 @@ echo "-- Install needed package"
 sudo pacman -Suy
 sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon \
 chromium ttf-font-awesome vim gnome-terminal tmux code zsh fish \
-nodejs npm php adapta-gtk-theme wireless_tools
+nodejs npm php adapta-gtk-theme wireless_tools cmus firefox containerd \
+docker docker-compose libreoffice-fresh wget
 
 sudo iwconfig wlp1s0 power off
 
-#sudo pacman -S cmus firefox containerd docker docker-compose libreoffice-fresh
+echo "--"
+echo "-- Install Postman from AUR"
+git clone https://aur.archlinux.org/postman-bin.git
+cd postman-bin
+makepkg -si 
+cd ..
+rm -rf postman-bin
 
-#echo "--"
-#echo "-- Install Firefox Nightly from AUR"
-#git clone https://aur.archlinux.org/firefox-nightly.git
-#cd firefox-nightly
-#gpg --recv-key 0x61B7B526D98F0353
-#makepkg -si
-#cd ..
-#rm -rf firefox-nightly
-
-#echo "--"
-#echo "-- Install Postman from AUR"
-#git clone https://aur.archlinux.org/postman-bin.git
-#cd postman-bin
-#makepkg -si 
-#cd ..
-#rm -rf postman-bin
-
-#echo "--"
-#echo "-- Install GitKraken from AUR"
-#git clone https://aur.archlinux.org/gitkraken.git
-#cd gitkraken 
-#makepkg -si 
-#cd ..
-#rm -rf gitkraken
+echo "--"
+echo "-- Install GitKraken from AUR"
+git clone https://aur.archlinux.org/gitkraken.git
+cd gitkraken 
+makepkg -si 
+cd ..
+rm -rf gitkraken
 
 echo "--"
 echo "-- Setting up docker to work without sudo"
@@ -75,7 +65,7 @@ echo "--"
 echo "-- Setting up Node / NPM to work without sudo"
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
-#npm install -g @babel/cli react-cli preact-cli strapi@alpha webpack-cli eslint prettier
+npm install -g @babel/cli react-cli preact-cli strapi@alpha webpack-cli eslint prettier
 
 echo "--"
 echo "-- Install oh-my-zsh and configure some plugins"
@@ -83,6 +73,7 @@ exit | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
+rm .zshrc
 ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 
 echo "--"
@@ -111,20 +102,20 @@ echo "--"
 echo "-- Reload all fonts"
 fc-cache -f
 
-#echo "--"
-#echo "-- Install my visual studio extensions"
-#code --install-extension PeterJausovec.vscode-docker
-#code --install-extension EQuimper.react-native-react-redux
-#code --install-extension johnpapa.winteriscoming
-#code --install-extension vscode-icons-team.vscode-icons
-#code --install-extension xabikos.JavaScriptSnippets
-#code --install-extension bysabi.prettier-vscode-semistandard
-#code --install-extension chris-noring.node-snippets
-#code --install-extension ms-vscode.node-debug2
-#code --install-extension mgmcdermott.vscode-language-babel
-#code --install-extension esbenp.prettier-vscode
-#code --install-extension dbaeumer.vscode-eslint
-#ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/Code\ -\ OSS/User/settings.json
+echo "--"
+echo "-- Install my visual studio extensions"
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension EQuimper.react-native-react-redux
+code --install-extension johnpapa.winteriscoming
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension xabikos.JavaScriptSnippets
+code --install-extension bysabi.prettier-vscode-semistandard
+code --install-extension chris-noring.node-snippets
+code --install-extension ms-vscode.node-debug2
+code --install-extension mgmcdermott.vscode-language-babel
+code --install-extension esbenp.prettier-vscode
+code --install-extension dbaeumer.vscode-eslint
+ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/Code\ -\ OSS/User/settings.json
 
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm"
