@@ -54,6 +54,14 @@ cd ..
 rm -rf gitkraken
 
 echo "--"
+echo "-- Install VSCodium from AUR"
+git clone https://aur.archlinux.org/vscodium.git
+cd vscodium
+makepkg -si
+cd ..
+rm -rf vscodium
+
+echo "--"
 echo "-- Setting up docker to work without sudo"
 sudo usermod -a -G docker $USER
 
