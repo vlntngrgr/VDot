@@ -31,7 +31,7 @@ echo ""
 echo "-- Install needed package"
 sudo pacman -Suy
 sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon \
-chromium ttf-font-awesome vim gnome-terminal tmux code zsh fish \
+chromium ttf-font-awesome vim gnome-terminal tmux zsh fish \
 nodejs npm php adapta-gtk-theme wireless_tools cmus firefox containerd \
 docker docker-compose libreoffice-fresh wget
 
@@ -123,7 +123,7 @@ code --install-extension ms-vscode.node-debug2
 code --install-extension mgmcdermott.vscode-language-babel
 code --install-extension esbenp.prettier-vscode
 code --install-extension dbaeumer.vscode-eslint
-ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/Code\ -\ OSS/User/settings.json
+ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/VSCodium/User/settings.json
 
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm"
