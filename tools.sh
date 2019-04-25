@@ -28,12 +28,18 @@ mkdir -p ~/.local/share/cinnamon
 ln -svf ~/.cinnamon/applets ~/.local/share/cinnamon/applets
 
 echo ""
+echo "----- link terminfo files -----"
+
+tic -x "/home/$USER/.config/dotfiles/terminfo/xterm-256color-italic.terminfo"
+tic -x "/home/$USER/.config/dotfiles/terminfo/tmux-256color.terminfo"
+
+echo ""
 echo "-- Install needed package"
 sudo pacman -Suy
-sudo pacman -S xorg-server lightdm lightdm-gtk-greeter cinnamon \
-chromium ttf-font-awesome vim gnome-terminal tmux zsh fish \
+sudo pacman -S xorg-apps lightdm lightdm-webkit2-greeter cinnamon \
+chromium ttf-font-awesome vim gnome-terminal zsh tmux fish \
 nodejs npm php adapta-gtk-theme wireless_tools cmus firefox containerd \
-docker docker-compose libreoffice-fresh wget
+docker docker-compose libreoffice-fresh wget ranger
 
 sudo iwconfig wlp1s0 power off
 
@@ -73,7 +79,12 @@ echo "--"
 echo "-- Setting up Node / NPM to work without sudo"
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
-npm install -g @babel/cli react-cli preact-cli strapi@alpha webpack-cli eslint prettier
+
+echo "--"
+echo "-- Install oh-my-fish and configure some plugins"
+curl -L https://get.oh-my.fish > install
+fish install --path=~/.local/share/omf --config=~/.config/omf
+rm -f install
 
 echo "--"
 echo "-- Install oh-my-zsh and configure some plugins"
@@ -81,7 +92,9 @@ exit | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
-rm .zshrc
+if [ -f "~/.zshrc" ];then 
+	rm ~/.zshrc
+fi
 ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 
 echo "--"
@@ -97,14 +110,15 @@ echo "--"
 echo "-- Import my Cinnamon config"
 dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
 
-echo "-- "
-echo "-- Installing Fira Fonts"
-mkdir -p ~/.fonts
-cd ~/.fonts
-wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz
-tar -xf 1.206.tar.gz FiraCode-1.206/distr
-rm 1.206.tar.gz
-cd ~/
+# TODO: installation de mes fonts
+#echo "-- "
+#echo "-- Installing Fira Fonts"
+#mkdir -p ~/.fonts
+#cd ~/.fonts
+#wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz
+#tar -xf 1.206.tar.gz FiraCode-1.206/distr
+#rm 1.206.tar.gz
+#cd ~/
 
 echo "--"
 echo "-- Reload all fonts"
