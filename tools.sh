@@ -37,11 +37,18 @@ echo ""
 echo "-- Install needed package"
 sudo pacman -Suy
 sudo pacman -S xorg-apps lightdm lightdm-webkit2-greeter cinnamon \
-chromium ttf-font-awesome vim gnome-terminal zsh tmux fish \
-nodejs npm php adapta-gtk-theme wireless_tools cmus firefox containerd \
-docker docker-compose libreoffice-fresh wget ranger
+chromium ttf-font-awesome neovim lxterminal tmux fish wget ranger \
+nodejs npm adapta-gtk-theme wireless_tools cmus firefox containerd \
+docker docker-compose libreoffice-fresh python-pip
 
 sudo iwconfig wlp1s0 power off
+
+echo "--"
+echo "-- Configure neovim"
+pip3 install --user --upgrade neovim
+ln -sfv ~/.config/dotfiles/neovim ~/.config/nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +qall
 
 echo "--"
 echo "-- Install Postman from AUR"
@@ -82,24 +89,28 @@ npm config set prefix '~/.npm-global'
 
 echo "--"
 echo "-- Install oh-my-fish and configure some plugins"
-curl -L https://get.oh-my.fish > install
-fish install --path=~/.local/share/omf --config=~/.config/omf
-rm -f install
+curl -L https://get.oh-my.fish | fish
 
-echo "--"
-echo "-- Install oh-my-zsh and configure some plugins"
-exit | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k 
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
-if [ -f "~/.zshrc" ];then 
-	rm ~/.zshrc
+if [ -f "~/.config/lxterminal/lxterminal.conf" ];then 
+	rm ~/.config/lxterminal/lxterminal.conf
 fi
-ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
+ln -svf ~/.config/dotfiles/fish ~/.config/fish
+ln -svf ~/.config/dotfiles/lxterminal.conf ~/.config/lxterminal/lxterminal.conf
+
+#echo "--"
+#echo "-- Install oh-my-zsh and configure some plugins"
+#exit | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
+#git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k 
+#git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
+#if [ -f "~/.zshrc" ];then 
+#	rm ~/.zshrc
+#fi
+#ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 
 echo "--"
 echo "-- Setting up ZSH as default shell"
-chsh -s /usr/bin/zsh
+chsh -s /usr/bin/fish
 
 echo "-- "
 echo "-- configure & install tmux"
@@ -126,17 +137,17 @@ fc-cache -f
 
 echo "--"
 echo "-- Install my visual studio extensions"
-code --install-extension PeterJausovec.vscode-docker
-code --install-extension EQuimper.react-native-react-redux
-code --install-extension johnpapa.winteriscoming
-code --install-extension vscode-icons-team.vscode-icons
-code --install-extension xabikos.JavaScriptSnippets
-code --install-extension bysabi.prettier-vscode-semistandard
-code --install-extension chris-noring.node-snippets
-code --install-extension ms-vscode.node-debug2
-code --install-extension mgmcdermott.vscode-language-babel
-code --install-extension esbenp.prettier-vscode
-code --install-extension dbaeumer.vscode-eslint
+extcode PeterJausovec.vscode-docker
+extcode EQuimper.react-native-react-redux
+extcode johnpapa.winteriscoming
+extcode vscode-icons-team.vscode-icons
+extcode xabikos.JavaScriptSnippets
+extcode bysabi.prettier-vscode-semistandard
+extcode chris-noring.node-snippets
+extcode ms-vscode.node-debug2
+extcode mgmcdermott.vscode-language-babel
+extcode esbenp.prettier-vscode
+extcode dbaeumer.vscode-eslint
 ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/VSCodium/User/settings.json
 
 
