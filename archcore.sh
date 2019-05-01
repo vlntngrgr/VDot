@@ -50,7 +50,7 @@ systemctl enable NetworkManager
 
 echo "--"
 echo "-- -- User = $USER"
-echo "-- -- Hostname = $USER-desktop"
+echo "-- -- Hostname = $USER-surface"
 echo "-- -- hosts = $USER.be"
 echo "-- --"
 echo "-- You can exit arch-chroot and reboot!"

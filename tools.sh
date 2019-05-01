@@ -21,11 +21,9 @@ echo "-- "
 echo "-- Link my dotfiles"
 ln -sfv ~/.config/dotfiles/eslintrc.js ~/.eslintrc.js
 ln -sfv ~/.config/dotfiles/prettierrc ~/.prettierrc
-ln -svf ~/.config/dotfiles/cinnamon ~/.cinnamon
+ln -sfv ~/.config/dotfiles/cinnamon ~/.cinnamon
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
-
-mkdir -p ~/.local/share/cinnamon
-ln -svf ~/.cinnamon/applets ~/.local/share/cinnamon/applets
+ln -sfv ~/.config/dotfiles/cinnamon ~/.cinnamon
 
 echo ""
 echo "----- link terminfo files -----"
@@ -39,13 +37,18 @@ sudo pacman -Suy
 sudo pacman -S xorg-apps lightdm lightdm-webkit2-greeter cinnamon \
 chromium ttf-font-awesome neovim lxterminal tmux fish wget ranger \
 nodejs npm adapta-gtk-theme wireless_tools cmus firefox containerd \
-docker docker-compose libreoffice-fresh python-pip
+docker docker-compose libreoffice-fresh python-pip php php-mongodb \
+php-apache composer
 
 sudo iwconfig wlp1s0 power off
 
 echo "--"
+echo "-- Setting up docker to work without sudo"
+sudo usermod -a -G docker $USER
+
+echo "--"
 echo "-- Configure neovim"
-pip3 install --user --upgrade neovim
+pip install --user --upgrade neovim
 ln -sfv ~/.config/dotfiles/neovim ~/.config/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
@@ -75,10 +78,6 @@ cd ..
 rm -rf vscodium
 
 echo "--"
-echo "-- Setting up docker to work without sudo"
-sudo usermod -a -G docker $USER
-
-echo "--"
 echo "-- Enable Lightdm"
 sudo systemctl enable lightdm
 
@@ -87,15 +86,11 @@ echo "-- Setting up Node / NPM to work without sudo"
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 
-echo "--"
-echo "-- Install oh-my-fish and configure some plugins"
-curl -L https://get.oh-my.fish | fish
-
-if [ -f "~/.config/lxterminal/lxterminal.conf" ];then 
+if [ -f "~/.config/terminator/config" ];then 
 	rm ~/.config/lxterminal/lxterminal.conf
 fi
 ln -svf ~/.config/dotfiles/fish ~/.config/fish
-ln -svf ~/.config/dotfiles/lxterminal.conf ~/.config/lxterminal/lxterminal.conf
+ln -svf ~/.config/dotfiles/config ~/.config/terminator/config
 
 #echo "--"
 #echo "-- Install oh-my-zsh and configure some plugins"
@@ -109,7 +104,7 @@ ln -svf ~/.config/dotfiles/lxterminal.conf ~/.config/lxterminal/lxterminal.conf
 #ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
 
 echo "--"
-echo "-- Setting up ZSH as default shell"
+echo "-- Setting up FISH as default shell"
 chsh -s /usr/bin/fish
 
 echo "-- "
@@ -120,16 +115,15 @@ git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/
 echo "--"
 echo "-- Import my Cinnamon config"
 dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
-
 # TODO: installation de mes fonts
-#echo "-- "
-#echo "-- Installing Fira Fonts"
-#mkdir -p ~/.fonts
-#cd ~/.fonts
-#wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz
-#tar -xf 1.206.tar.gz FiraCode-1.206/distr
-#rm 1.206.tar.gz
-#cd ~/
+echo "-- "
+echo "-- Installing Fira Fonts"
+mkdir -p ~/.fonts
+cd ~/.fonts
+wget https://github.com/tonsky/FiraCode/archive/1.206.tar.gz
+tar -xf 1.206.tar.gz FiraCode-1.206/distr
+rm 1.206.tar.gz
+cd ~
 
 echo "--"
 echo "-- Reload all fonts"
@@ -137,19 +131,13 @@ fc-cache -f
 
 echo "--"
 echo "-- Install my visual studio extensions"
-extcode PeterJausovec.vscode-docker
-extcode EQuimper.react-native-react-redux
 extcode johnpapa.winteriscoming
+extcode PeterJausovec.vscode-docker
 extcode vscode-icons-team.vscode-icons
-extcode xabikos.JavaScriptSnippets
-extcode bysabi.prettier-vscode-semistandard
-extcode chris-noring.node-snippets
-extcode ms-vscode.node-debug2
-extcode mgmcdermott.vscode-language-babel
 extcode esbenp.prettier-vscode
 extcode dbaeumer.vscode-eslint
-ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/VSCodium/User/settings.json
 
+ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/VSCodium/User/settings.json
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm"
 echo "-- -- Have fun!"
