@@ -87,7 +87,7 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 
 if [ -f "~/.config/terminator/config" ];then 
-	rm ~/.config/lxterminal/lxterminal.conf
+	rm ~/.config/terminator/config
 fi
 ln -svf ~/.config/dotfiles/fish ~/.config/fish
 ln -svf ~/.config/dotfiles/config ~/.config/terminator/config
