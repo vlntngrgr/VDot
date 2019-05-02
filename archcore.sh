@@ -20,8 +20,8 @@ locale-gen
 
 echo "$USER-surface" > /etc/hostname
 echo "127.0.0.1   localhost" >> /etc/hosts
-echo "::1        localhost" >> /etc/hosts
-echo "127.0.0.1   $USER.be  localhost" >> /etc/hosts
+echo "::1         localhost" >> /etc/hosts
+echo "127.0.0.1   $USER.be      localhost" >> /etc/hosts
   
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "LANGUAGE=en_US" >> /etc/locale.conf

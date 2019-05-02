@@ -23,7 +23,6 @@ ln -sfv ~/.config/dotfiles/eslintrc.js ~/.eslintrc.js
 ln -sfv ~/.config/dotfiles/prettierrc ~/.prettierrc
 ln -sfv ~/.config/dotfiles/cinnamon ~/.cinnamon
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
-ln -sfv ~/.config/dotfiles/cinnamon ~/.cinnamon
 
 echo ""
 echo "----- link terminfo files -----"
@@ -36,9 +35,8 @@ echo "-- Install needed package"
 sudo pacman -Suy
 sudo pacman -S xorg-apps lightdm lightdm-webkit2-greeter cinnamon \
 chromium ttf-font-awesome neovim lxterminal tmux fish wget ranger \
-nodejs npm adapta-gtk-theme wireless_tools cmus firefox containerd \
-docker docker-compose libreoffice-fresh python-pip php php-mongodb \
-php-apache composer
+nodejs npm adapta-gtk-theme wireless_tools firefox containerd \
+docker docker-compose libreoffice-fresh python-pip php zeal
 
 sudo iwconfig wlp1s0 power off
 
@@ -92,20 +90,9 @@ fi
 ln -svf ~/.config/dotfiles/fish ~/.config/fish
 ln -svf ~/.config/dotfiles/config ~/.config/terminator/config
 
-#echo "--"
-#echo "-- Install oh-my-zsh and configure some plugins"
-#exit | sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
-#git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k 
-#git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
-#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
-#if [ -f "~/.zshrc" ];then 
-#	rm ~/.zshrc
-#fi
-#ln -svf ~/.config/dotfiles/zshrc ~/.zshrc
-
 echo "--"
 echo "-- Setting up FISH as default shell"
-chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish | fish
 
 echo "-- "
 echo "-- configure & install tmux"
@@ -115,6 +102,7 @@ git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/
 echo "--"
 echo "-- Import my Cinnamon config"
 dconf load /org/cinnamon/ < ~/.config/dotfiles/cinnamon_backup
+
 # TODO: installation de mes fonts
 echo "-- "
 echo "-- Installing Fira Fonts"
@@ -133,11 +121,24 @@ echo "--"
 echo "-- Install my visual studio extensions"
 extcode johnpapa.winteriscoming
 extcode PeterJausovec.vscode-docker
-extcode vscode-icons-team.vscode-icons
+extcode emmanuelbeziat.vscode-great-icons
 extcode esbenp.prettier-vscode
 extcode dbaeumer.vscode-eslint
+extcode onecentlin.laravel-blade
+extcode onecentlin.laravel5-snippets
+extcode ryannaddy.laravel-artisan
+extcode felixfbecker.php-debug
+extcode felixfbecker.php-intellisense
+extcode gio00.fish
+extcode skyapps.fish-vscode
+extcode hollowtree.vue-snippets
 
 ln -svf ~/.config/dotfiles/vscode_settings.json ~/.config/VSCodium/User/settings.json
+
+if [ -f "~/.config/Zeal/Zeal.conf" ];then
+	rm ~/.config/Zeal/Zeal.conf
+fi
+ln -svf ~/.config/dotfiles/Zeal.conf ~/.config/Zeal/Zeal.conf
 
 echo "-- -- You might need to reboot your computer or just sudo systemctl start lightdm"
 echo "-- -- Have fun!"
