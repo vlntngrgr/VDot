@@ -76,6 +76,14 @@ cd ..
 rm -rf vscodium
 
 echo "--"
+echo "-- Install GitFlow from AUR"
+git clone https://aur-dev.archlinux.org/gitflow-git.git
+cd gitflow-git
+makepkg -si
+cd ..
+rm -rf gitflow-git
+
+echo "--"
 echo "-- Enable Lightdm"
 sudo systemctl enable lightdm
 
