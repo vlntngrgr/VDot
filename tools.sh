@@ -10,6 +10,7 @@ git config --global credential.helper 'cache --timeout=3600'
 git clone https://github.com/vlntngrgr/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 git checkout WSL
+rm -rf .git
 cd ~/
 
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
