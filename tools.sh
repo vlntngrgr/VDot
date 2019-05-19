@@ -29,6 +29,8 @@ nvim +PlugInstall +qall
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 
+composer global require laravel/installer
+
 mkdir -p ~/.config/tmux-plugins
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
 
