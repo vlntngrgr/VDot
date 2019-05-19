@@ -12,8 +12,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 git clone https://github.com/vlntngrgr/dotfiles/tree/WSL ~/.config/dotfiles
 
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
-ln -svf ~/.config/dotfiles/fish ~/.config/fish
-chsh -s /usr/bin/fish | fish
 
 tic -x "/home/$USER/.config/dotfiles/terminfo/xterm-256color-italic.terminfo"
 tic -x "/home/$USER/.config/dotfiles/terminfo/tmux-256color.terminfo"
@@ -30,6 +28,9 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 
 composer global require laravel/installer
+
+ln -svf ~/.config/dotfiles/fish ~/.config/fish
+chsh -s /usr/bin/fish | fish
 
 mkdir -p ~/.config/tmux-plugins
 git clone https://github.com/tmux-plugins/tmux-resurrect ~/.config/tmux-plugins/tmux-resurrect
