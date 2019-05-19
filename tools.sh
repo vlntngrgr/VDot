@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo pacman -S git curl wget nodejs npm php composer fish tmux containerd docker docker-compose python-pip neovim ttf-font-awesome
+sudo pacman -S git wget nodejs npm php composer fish tmux containerd docker docker-compose python-pip neovim ttf-font-awesome
 
 git config --global user.email "valentin.gregoire91@gmail.com"
 git config --global user.name "vlntngrgr"
