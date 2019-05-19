@@ -9,7 +9,10 @@ git config --global credential.helper 'cache --timeout=3600'
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-git clone https://github.com/vlntngrgr/dotfiles/tree/WSL ~/.config/dotfiles
+git clone https://github.com/vlntngrgr/dotfiles ~/.config/dotfiles
+cd ~/.config/dotfiles
+git checkout WSL
+cd ~/
 
 ln -sfv ~/.config/dotfiles/tmux.conf ~/.tmux.conf
 
