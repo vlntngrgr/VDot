@@ -7,8 +7,6 @@ git config --global user.name "vlntngrgr"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
 
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-
 git clone https://github.com/vlntngrgr/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 git checkout WSL
