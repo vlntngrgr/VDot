@@ -18,13 +18,13 @@ hwclock --systohc
 echo be_FR.UTF-8 UTF-8 >> /etc/locale.gen
 locale-gen
 
-echo "$USER-surface" > /etc/hostname
+echo "$USER-computed" > /etc/hostname
 echo "127.0.0.1   localhost" >> /etc/hosts
 echo "::1         localhost" >> /etc/hosts
 echo "127.0.0.1   $USER.be      localhost" >> /etc/hosts
   
 echo "LANG=be_FR.UTF-8" > /etc/locale.conf
-echo "LANGUAGE=en_US" >> /etc/locale.conf
+echo "LANGUAGE=be_FR" >> /etc/locale.conf
 
 echo "--"
 echo "-- Enter root password"
@@ -41,8 +41,8 @@ echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
   
 pacman -S grub openssh git networkmanager efibootmgr
   
-#grub-install /dev/sda
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
+grub-install /dev/sda
+#grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
